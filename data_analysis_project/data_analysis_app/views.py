@@ -16,7 +16,15 @@ pa = ''
 
 def index(request):
     if(request.method == 'POST'):
-        if(request.post == '')
+        if(request.post == 'Himachal Pradesh'):
+            pa = ''
+        if(request.post == 'Uttarakhand'):
+            pa = ''
+        if(request.post == 'Rajasthan'):
+            pa = ''
+        if(request.post == 'Kerala'):
+            pa = ''
+    return render(request, 'cover.html', pa)
     
 
 def data_tab(request):
