@@ -83,7 +83,6 @@ def descriptive_statistics_tab(request):
 
 
 
-
 def box_plot(request):
     # Read Titanic dataset from CSV
     df = pd.read_csv("C:\\Users\\DELL\\Downloads\\titanic.csv")
@@ -117,11 +116,6 @@ def box_plot(request):
     }
     return {'plot_html': plot_html, 'box_cus_options': box_cus_options}
     #return render(request, 'box_plot.html', {'plot_html': plot_html, 'customization_options': customization_options})
-
-
-
-
-
 
 
 
@@ -243,17 +237,6 @@ def exploratory_data_analysis_tab(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 def export_to_csv(request):
     # Read Titanic dataset from CSV
     df = pd.read_csv("C:\\Users\\DELL\\Downloads\\titanic.csv")
@@ -283,34 +266,3 @@ def export_to_excel(request):
     response['Content-Disposition'] = 'attachment; filename="titanic_data.xlsx"'
 
     return response
-
-
-
-def predict_survival(request):
-    if request.method == 'POST':
-        model_filename = 'titanic_model.pkl'
-        model_path = os.path.join(os.path.dirname(__file__), 'models', model_filename)
-        # Load the trained model from the pickle file
-        with open(model_path, 'rb') as model_file:
-            model = pickle.load(model_file)
-
-        # Get user input from the form
-        pclass = int(request.POST.get('pclass'))
-        sex = 1 if request.POST.get('sex') == 'male' else 0
-        age = float(request.POST.get('age'))
-        sibsp = int(request.POST.get('sibsp'))
-        parch = int(request.POST.get('parch'))
-        fare = float(request.POST.get('fare'))
-        embarkedq = 1 if request.POST.get('embarked') == 'embarkeds' else 0
-        embarkeds = 1 if request.POST.get('embarked') == 'embarkeds' else 0
-
-        # Make prediction
-        input_data = [[pclass, sex, age, sibsp, parch, fare, embarkedq, embarkeds]]
-        prediction = model.predict(input_data)[0]
-
-        # Render the result
-        return render(request, 'prediction_result.html', {'prediction': prediction})
-
-    # If the form is not submitted, render the empty form
-    return render(request, 'predict_survival.html', {'prediction': None})
-
