@@ -26,7 +26,7 @@ def data_tab(request):
     elif state=="2":
         df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Uttarakhand.csv")
     elif state=="3":
-        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Rajasthan.csv")
+        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Madya Pradesh.csv")
     elif state=="4":
         df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Kerala.csv")
 
