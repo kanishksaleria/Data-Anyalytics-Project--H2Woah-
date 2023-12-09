@@ -15,12 +15,12 @@ import pickle
 def index(request):
     return render(request, 'cover.html')
     
+df = pd.DataFrame()
 
 def data_tab(request):
     state = request.POST.get("user_state")
     print(state)
     # Read Titanic dataset from CSV
-    df = pd.DataFrame()
     if state=="1":
         df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Himachal Pradesh.csv")
     elif state=="2":
@@ -54,7 +54,7 @@ def data_tab(request):
 
 
 def profile_view(request):
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
 
     # Create a profile report
     profile = ProfileReport(df, title="Pandas Profiling Report")
@@ -74,7 +74,7 @@ def profile_view(request):
   
 def descriptive_statistics_tab(request):
     # Read Titanic dataset from CSV
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
     
     # Perform descriptive statistics using pandas
     descriptive_stats = df.describe().to_html(classes='table table-bordered table-hover')
@@ -85,7 +85,7 @@ def descriptive_statistics_tab(request):
 
 
 def box_plot(request):
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
 
     # Default settings for the plot
     default_category = 'Pclass'
@@ -126,7 +126,7 @@ def box_plot(request):
 
 def exploratory_data_analysis_tab(request):
     # Read Titanic dataset from CSV
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
 
     # Default settings for the plot
     default_feature = 'Age'
@@ -255,7 +255,7 @@ def exploratory_data_analysis_tab(request):
 
 def export_to_csv(request):
     # Read Titanic dataset from CSV
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
 
     # Generate CSV file
     csv_file = df.to_csv(index=False)
@@ -269,7 +269,7 @@ def export_to_csv(request):
 
 def export_to_excel(request):
     # Read Titanic dataset from CSV
-    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
+    global df
 
     # Generate Excel file
     excel_file = BytesIO()
