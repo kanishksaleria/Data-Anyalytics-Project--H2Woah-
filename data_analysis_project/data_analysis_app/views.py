@@ -85,7 +85,6 @@ def descriptive_statistics_tab(request):
 
 
 def box_plot(request):
-    # Read Titanic dataset from CSV
     df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
 
     # Default settings for the plot
@@ -155,8 +154,8 @@ def exploratory_data_analysis_tab(request):
 
     ##########################   Box Plot ##############################
     # Default settings for the plot
-    default_category = 'Pclass'
-    default_value = 'Fare'
+    default_category = 'Area_Type'
+    default_value = 'Present_Storage_Capacity'
 
     # Get user-selected options (if any)
     selected_category = request.GET.get('category', default_category)
@@ -187,8 +186,8 @@ def exploratory_data_analysis_tab(request):
     ####################### Scatter Plot ###############################
 
     # Default settings for the scatter plot
-    default_x_feature = 'Age'
-    default_y_feature = 'Fare'
+    default_x_feature = 'Water_Body_Type'
+    default_y_feature = 'Water_Body_Nature'
 
     # Get user-selected options (if any)
     selected_x_feature = request.GET.get('x_feature', default_x_feature)
@@ -212,7 +211,7 @@ def exploratory_data_analysis_tab(request):
 
     ################################ Pie Chart #################################
      # Default settings for the pie chart
-    default_feature_pie = 'Survived'
+    default_feature_pie = pd.concat([df['reason_water_body_in_use_name2'], df['reason_water_body_in_use_name3']])
 
     # Get user-selected options (if any)
     selected_feature_pie = request.GET.get('feature_pie', default_feature_pie)
