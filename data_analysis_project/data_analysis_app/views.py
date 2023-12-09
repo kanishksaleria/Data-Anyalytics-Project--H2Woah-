@@ -86,10 +86,12 @@ def descriptive_statistics_tab(request):
 
 def box_plot(request):
     global df
+    # Read water data from CSV
+    df = pd.read_csv(r"C:\Users\kedha\Downloads\WBC_HP - WBC_HP.csv")
 
     # Default settings for the plot
-    default_category = 'Pclass'
-    default_value = 'Fare'
+    default_category = 'Area_Type'
+    default_value = 'Present_Storage_Capacity'
 
     # Get user-selected options (if any)
     selected_category = request.GET.get('category', default_category)
@@ -101,7 +103,12 @@ def box_plot(request):
         return render(request, 'error_page.html', {'error_message': error_message})
 
     # Create an interactive box plot using Plotly
-    fig = px.box(df, x=selected_category, y=selected_value, title=f'Box Plot: {selected_value} by {selected_category}')
+    fig = px.box(
+        df,
+        x=selected_category,
+        y=selected_value,
+        title=f'Box Plot: {selected_value} by {selected_category}',
+    )
 
     # Convert the plot to HTML for rendering in the template
     plot_html = fig.to_html(full_html=False)
@@ -114,7 +121,9 @@ def box_plot(request):
         'selected_category': selected_category,
         'selected_value': selected_value,
     }
+
     return {'plot_html': plot_html, 'box_cus_options': box_cus_options}
+
     #return render(request, 'box_plot.html', {'plot_html': plot_html, 'customization_options': customization_options})
 
 
@@ -129,7 +138,7 @@ def exploratory_data_analysis_tab(request):
     global df
 
     # Default settings for the plot
-    default_feature = 'Age'
+    default_feature = 'Water_Body_Type'
     default_bins = 20
 
     # Get user-selected options (if any)
