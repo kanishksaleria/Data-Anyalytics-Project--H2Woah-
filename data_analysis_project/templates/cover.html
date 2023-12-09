@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        h1 {text-align: center;}
+        body {
+            background-image: url('https://images.unsplash.com/photo-1516132006923-6cf348e5dee2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: black;
+            padding: 20px;
+        }
+
+        .container {
+            background-color:rgb(146, 182, 155);
+            padding: 30px;
+            border-radius: 40px;
+        }
+
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .dropdown-menu {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .hidden-form {
+        display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <form method="POST" action="/data/">
+            <h1>H2Whoa!</h1>
+            <br>
+            <br>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <strong>Overview of the Project</strong>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Our project delves into the captivating realm of water bodies across four diverse states in India – Himachal Pradesh, Uttarakhand, Madhya Pradesh, and Kerala. Each state boasts a unique topography, climate, and cultural identity, contributing to the distinctiveness of its water ecosystems. Through an interdisciplinary approach, we aim to unravel the intricate connections between geography, ecology, and human interaction with these vital resources. From the pristine lakes nestled in the Himalayan landscapes to the meandering rivers that traverse the heart of India, our endeavor is to comprehensively understand and document the significance of water bodies in shaping the environmental and socio-economic fabric of these states.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <strong>The Himalayan Majesty of Himachal Pradesh and Uttarakhand</strong>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Himachal Pradesh and Uttarakhand, cradled in the lap of the Himalayas, are home to some of the most enchanting water bodies in the country. Glacial lakes, such as the famous Rohtang Lake and Nainital's emerald gems, punctuate the rugged terrains. These states play a crucial role in sustaining major rivers like the Ganges and Yamuna. The delicate balance of these aquatic ecosystems and the impact of climate change on them present intriguing avenues for exploration and analysis.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <strong>The Heartland Waters of Madhya Pradesh</strong>
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Madhya Pradesh, often referred to as the heart of India, is adorned with a diverse array of water bodies ranging from expansive rivers like the Narmada to the serene lakes like the Upper Lake in Bhopal. These water bodies have been integral to the historical and cultural narrative of the region, shaping civilizations and sustaining biodiversity. The project aims to unfold the tales of these water bodies, exploring their ecological importance and the challenges they face in the contemporary context.
+                    </div>
+                  </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <strong>Kerala’s Water Symphony</strong>
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Down south, Kerala, known as "God's Own Country," showcases a tapestry of backwaters, lagoons, and coastal stretches. The intricate network of water bodies not only supports a unique ecosystem but also plays a vital role in the livelihoods of the local population. Our investigation will encompass the interplay of human activities, conservation efforts, and the resilience of these water bodies in the face of environmental pressures. Together, this project embarks on a journey to unveil the diverse tapestry of water bodies across these four states, highlighting their ecological importance and the imperative need for sustainable management.
+                    </div>
+                  </div>
+              </div>
+        <br>
+        <br>
+            <div class="input-group">
+                <select class="form-control" id="inputState" name="user_state" aria-label="Example select with button addon">
+                  <option selected>Choose State...</option>
+                  <option value="1">Himachal Pradesh</option>
+                  <option value="2">Uttarakhand</option>
+                  <option value="3">Madhya Pradesh</option>
+                  <option value="4">Kerala</option>
+                </select>
+            </div>
+            <br>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Go!</button>
+        </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
