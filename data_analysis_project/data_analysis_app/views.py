@@ -12,10 +12,11 @@ import base64
 from io import StringIO
 import pickle
 
-
+#Function to be called when a blank url is passed
 def index(request):
     return render(request, 'cover.html')
-    
+
+#Global variable to store dataframe of the dataset of the state to be chosen
 df = pd.DataFrame()
 
 
@@ -23,10 +24,9 @@ def data_tab(request):
     state = request.POST.get("user_state")
     print(state)
     global df
-    global curr
-    # Read Titanic dataset from CSV
+    #Load dataset of chosen state
     if state=="1":
-        curr = str(os.getcwd()) + "\\Data\\Himachal Pradesh.csv"
+        curr = str(os.getcwd()) + "\\Data\\Himachal Pradesh.csv" #storing path of dataset of chosen state
         df = pd.read_csv(curr)
     elif state=="2":
         curr = str(os.getcwd()) + "\\Data\\Uttarakhand.csv"
