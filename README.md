@@ -24,8 +24,8 @@
 * **Descriptive Statistics Tab:**
 In the 'Descriptive Statistics' tab, dive deep into numerical insights derived from the dataset. Gain a nuanced understanding of how factors such as urbanization impact the water landscape, as we present key statistical summaries for comprehensive analysis.
 
-* **Profile Tab**
-A comprehensive profile of the data and the analysis done. Created using ydata-profiling
+* **Profile Tab:**
+A comprehensive profile of the data and the analysis done. Created using ydata-profiling.
 
 
 ### Data Source:
