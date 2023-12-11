@@ -27,7 +27,17 @@ In the 'Descriptive Statistics' tab, dive deep into numerical insights derived f
 ### Data Source:
 The project relies on data.gov.in's water body survey published in 2023, ensuring reliability and credibility in our analysis.
 
-### How to Use:
-* Visit the 'Data' tab to view the raw dataset.
-* Head to the 'EDA' tab for an interactive exploratory data analysis experience.
-* Explore the 'Descriptive Statistics' tab for numerical insights.
+### Installation Procedure:
+* Download the folder from Github and store it in a folder
+* In the parent folder create a virtual environment
+* In the environment pip install the following dependencies: pandas 2.0.3, Django 5.0, pydantic 2.5.2, ydata-profiling 4.6.2, seaborn 0.12.2, plotly 5.18.0, matplotlib 3.7.3 (It is imperative that pydantic is installed before ydata-profiling)
+* Change the directory to the folder that contains manage.py
+* In the terminal execute the command: python manage.py runserver
+* If that does not work try: python3 manage.py runserver
+
+### User Guide:
+* In the first page select the state to be analysed from the dropdown menu
+* Click the "Go!" button
+* Click the tab to be viewed
+* To be noted that the predict tab does not work.
+
