@@ -17,20 +17,28 @@ def index(request):
     return render(request, 'cover.html')
     
 df = pd.DataFrame()
+curr = str(os.getcwd())
+curr = curr + "\\Data"
+
 
 def data_tab(request):
     state = request.POST.get("user_state")
     print(state)
     global df
+    global curr
     # Read Titanic dataset from CSV
     if state=="1":
-        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Himachal Pradesh.csv")
+        curr = curr + "\\Himachal Pradesh.csv"
+        df = pd.read_csv(curr)
     elif state=="2":
-        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Uttarakhand.csv")
+        curr = curr + "\\Uttarakhand.csv"
+        df = pd.read_csv(curr)
     elif state=="3":
-        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Madhya Pradesh.csv")
+        curr = curr + "\\Madhya Pradesh.csv"
+        df = pd.read_csv(curr)
     elif state=="4":
-        df = pd.read_csv(r"C:\Users\kedha\Downloads\data_analysis_project (1)\data_analysis_project\Data\Kerala.csv")
+        curr = curr + "\\Kerala.csv"
+        df = pd.read_csv(curr)
 
  # Get the first ten rows of the dataset
     df_first_ten = df.head(10)
